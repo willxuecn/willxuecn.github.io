@@ -1,0 +1,546 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>go语言学习（一）net/http包客户端实例练习 | WillXue&#39;s Blog</title>
+<meta name="description" content="一个好高骛远的码农" />
+<link rel="shortcut icon" href="https://willxuecn.github.io/favicon.ico">
+<link rel="stylesheet" href="https://willxuecn.github.io/styles/main.css">
+
+<script src="https://willxuecn.github.io/media/js/jquery.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/aos.js"></script>
+<script src="https://willxuecn.github.io/media/js/pace.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/view-image.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="
+
+
+因为我是学Java的，主要做web开发，所以看了点go的基础知识后，就试着把以前的demo用go实现以下，而且go web开发非常简便只要几行代码，就能实现简单http服务器，今天主要写一下用net/http包模拟客户端发送请求实现百..." />
+    <meta name="keywords" content="Golang" />
+    <script src="https://willxuecn.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://willxuecn.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://willxuecn.github.io"><img src="/media/images/logoo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://willxuecn.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1587230074610" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('http://willxue.cn-bj.ufileos.com/golang1.png');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2016-11-30"><i class="fa fa-calendar"></i><span class="lately">3 年前</span></time>
+              
+              <a href="https://willxuecn.github.io/post/golang-learn-01-20161130/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/golang-learn-01-20161130/"> </span>
+              </a>
+              <span id="/golang-learn-01-20161130/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://willxuecn.github.io/tag/euPuGRw2l/" class="ctag ctag-0 ctag-euPuGRw2l" aria-label="">Golang</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">go语言学习（一）net/http包客户端实例练习</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <figure data-type="image" tabindex="1"><img src="http://willxue.cn-bj.ufileos.com/golang1.png" alt="界面" loading="lazy"></figure>
+<!--more-->
+<blockquote>
+<p>因为我是学Java的，主要做web开发，所以看了点go的基础知识后，就试着把以前的demo用go实现以下，而且go web开发非常简便只要几行代码，就能实现简单http服务器，今天主要写一下用net/http包模拟客户端发送请求实现百度推送（实时）。</p>
+</blockquote>
+<h1 id="开始">开始</h1>
+<h2 id="项目结构">项目结构</h2>
+<pre><code>.
+├── static
+|   ├── css
+|   └── layer
+├── views
+|   └── index.html
+└── main.go
+</code></pre>
+<h2 id="maingo">main.go</h2>
+<pre><code>package main
+
+import (
+	&quot;fmt&quot;
+	&quot;html/template&quot;
+	&quot;io/ioutil&quot;
+	&quot;log&quot;
+	&quot;net/http&quot;
+	&quot;net/url&quot;
+	&quot;strings&quot;
+)
+
+func main() {
+	http.HandleFunc(&quot;/&quot;, index)
+	http.HandleFunc(&quot;/send&quot;, bdSend)
+	//处理静态文件
+	http.Handle(&quot;/static/&quot;, http.StripPrefix(&quot;/static/&quot;, http.FileServer(http.Dir(&quot;static&quot;))))
+	err := http.ListenAndServe(&quot;:80&quot;, nil)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+//首页
+func index(w http.ResponseWriter, r *http.Request) {
+	if r.Method == &quot;GET&quot; {
+		t, err := template.ParseFiles(&quot;views/index.html&quot;)
+		if err != nil {
+			log.Fatal(err)
+		}
+		t.Execute(w, nil)
+	}
+}
+
+//推送
+func bdSend(w http.ResponseWriter, r *http.Request) {
+	if r.Method == &quot;POST&quot; {
+		request(w, r)
+	}
+}
+
+//模拟http客户端post发送请求
+func request(w http.ResponseWriter, r *http.Request) {
+	//先解析form
+	err := r.ParseForm()
+	
+	if err != nil {
+		log.Fatal(err)
+	}
+	//请求地址
+	var apiURL string
+	switch r.Form[&quot;oper&quot;][0] {
+	case &quot;post&quot;:
+		apiURL = &quot;http://data.zz.baidu.com/urls&quot;
+	case &quot;update&quot;:
+		apiURL = &quot;http://data.zz.baidu.com/update&quot;
+	case &quot;del&quot;:
+		apiURL = &quot;http://data.zz.baidu.com/del&quot;
+	}
+
+	//初始化参数
+	param := url.Values{}
+
+	//配置请求参数,方法内部已处理urlencode问题,中文参数可以直接传参
+	param.Set(&quot;site&quot;, r.Form[&quot;site&quot;][0])
+	param.Set(&quot;token&quot;, r.Form[&quot;token&quot;][0])
+
+	var URL *url.URL
+	URL, err = url.Parse(apiURL)
+	if err != nil {
+		fmt.Printf(&quot;解析url错误:\r\n%v&quot;, err)
+	}
+	//如果参数中有中文参数,这个方法会进行URLEncode
+	URL.RawQuery = param.Encode()
+	client := &amp;http.Client{}
+	req, _ := http.NewRequest(&quot;POST&quot;, URL.String(), strings.NewReader(r.Form[&quot;sendURL&quot;][0]))
+
+	req.Header.Set(&quot;Content-Type&quot;, &quot;application/x-www-form-urlencoded&quot;)
+	//req.Header.Set(&quot;User-Agent&quot;, &quot;curl/7.12.1&quot;)
+	//req.Header.Set(&quot;Host&quot;, &quot;data.zz.baidu.com&quot;)
+
+	//发送请求
+	resp, err := client.Do(req)
+	//注意关闭resp.Body
+	defer resp.Body.Close()
+	data, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		fmt.Printf(&quot;请求失败,错误信息:\r\n%v&quot;, err)
+	} else {
+		//var returns map[string]interface{}
+		//json.Unmarshal(data, &amp;returns)
+		//data, err = json.Marshal(returns)
+		//将返回的json数据返给客户端浏览器
+		fmt.Fprintln(w, string(data))
+	}
+}
+</code></pre>
+<h2 id="indexhtml">index.html</h2>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+	&lt;head&gt;
+		&lt;meta charset=&quot;utf-8&quot;&gt;
+		&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+		&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+		&lt;!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ --&gt;
+		&lt;title&gt;百度主动推送(实时)&lt;/title&gt;
+		&lt;LINK rel=&quot;Bookmark&quot; href=&quot;/static/favicon.ico&quot;&gt;
+		&lt;LINK rel=&quot;Shortcut Icon&quot; href=&quot;/static/favicon.ico&quot; /&gt;
+		&lt;!-- Bootstrap --&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css&quot;&gt;
+		&lt;link rel=&quot;stylesheet&quot; href=&quot;/static/css/style.css&quot;&gt;
+		&lt;!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --&gt;
+		&lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --&gt;
+		&lt;!--[if lt IE 9]&gt;
+			&lt;script src=&quot;//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js&quot;&gt;&lt;/script&gt;
+			&lt;script src=&quot;//cdn.bootcss.com/respond.js/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;
+	    &lt;![endif]--&gt;
+	&lt;/head&gt;
+	&lt;body class=&quot;bg-body&quot;&gt;
+		&lt;div class=&quot;container text-center bg&quot;&gt;
+			&lt;h1&gt;百度主动推送（实时）&lt;/h1&gt;
+			&lt;form class=&quot;form-horizontal&quot; id=&quot;form&quot; &gt;
+				&lt;div class=&quot;form-group  form-group-lg&quot;&gt;
+					&lt;div class=&quot;col-sm-8 col-sm-offset-2&quot;&gt;
+						&lt;select class=&quot;form-control&quot; id=&quot;oper&quot; name=&quot;oper&quot;&gt;
+							&lt;option value=&quot;post&quot;&gt;推送数据&lt;/option&gt;
+							&lt;option value=&quot;update&quot;&gt;更新数据&lt;/option&gt;
+							&lt;option value=&quot;del&quot;&gt;删除数据&lt;/option&gt;
+						&lt;/select&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;form-group  form-group-lg&quot;&gt;
+					&lt;div class=&quot;col-sm-8 col-sm-offset-2&quot;&gt;
+						&lt;input type=&quot;tel&quot; class=&quot;form-control&quot; id=&quot;site&quot; name=&quot;site&quot; placeholder=&quot;要推送内容的网站，例如：www.example.com&quot; required &gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;form-group  form-group-lg&quot;&gt;
+					&lt;div class=&quot;col-sm-8 col-sm-offset-2&quot;&gt;
+						&lt;input type=&quot;tel&quot; class=&quot;form-control&quot; id=&quot;token&quot; name=&quot;token&quot; placeholder=&quot;百度站长平台秘钥，例如：ZD4V6EK2QNpzwill&quot; required &gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;form-group  form-group-lg&quot;&gt;
+					&lt;div class=&quot;col-sm-8 col-sm-offset-2&quot;&gt;
+						&lt;textarea class=&quot;form-control&quot; name=&quot;sendURL&quot; rows=&quot;8&quot; placeholder=&quot;网址之间要换行，例如：
+http://www.example/abc.hml
+http://www.example/bcd.html&quot; &gt;&lt;/textarea&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;div class=&quot;form-group  form-group-lg&quot;&gt;
+					&lt;div class=&quot;col-sm-8 col-sm-offset-2&quot;&gt;
+						&lt;button type=&quot;button&quot; class=&quot;btn btn-success btn-lg btn-block&quot; onclick=&quot;ajaxSub()&quot;&gt;推送&lt;/button&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+				&lt;h3&gt;&amp;copy; 2016 powered by &lt;a href=&quot;http://willxue.top&quot; target=&quot;_blank&quot;&gt;willxue&lt;/a&gt;&lt;/h3&gt;
+			&lt;/form&gt;
+		
+			&lt;!-- jQuery (necessary for Bootstrap's JavaScript plugins) --&gt;
+			&lt;script src=&quot;//cdn.bootcss.com/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+			&lt;!-- Include all compiled plugins (below), or include individual files as needed --&gt;
+			&lt;script src=&quot;//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+			&lt;script src=&quot;/static/layer/layer.js&quot;&gt;&lt;/script&gt;
+			&lt;script type=&quot;text/javascript&quot;&gt;
+				function ajaxSub(){
+					$.post(&quot;/send&quot;, $(&quot;#form&quot;).serialize(), function(result){
+						if (result.indexOf(&quot;Exception&quot;)&gt;0) {
+							layer.alert(&quot;请确认站点和token是否匹配&quot;,{title: &quot;错误&quot;,icon:2});
+						} else {
+							var data = JSON.parse(result);
+							if (result.indexOf(&quot;success&quot;)&gt;0) {
+								layer.alert(&quot;成功推送了：&quot;+data.success+&quot; 个&lt;br/&gt;今天还能推送：&quot;+data.remain+&quot; 个&lt;br/&gt;不是本站而未处理的url列表： &quot;+data.not_same_site+&quot;&lt;br/&gt;不合法的url：&quot;+data.not_valid,{icon:1});
+							} else{
+								layer.alert(&quot;推送失败了，错误码：&quot;+data.error+&quot;&lt;br/&gt;错误描述：&quot;+data.message,{title: &quot;错误&quot;,icon:2});
+							}
+						}
+					});
+				}
+			&lt;/script&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h2 id="demo">Demo</h2>
+<p>在线demo部署在daocloud <a href="http://gobaidu.daoapp.io/">http://gobaidu.daoapp.io/</a></p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('http://willxue.cn-bj.ufileos.com/nc-9.jpg');"></div>
+                 <a href="https://willxuecn.github.io/post/golang-learn-0-20161122/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2016-11-22">2016-11-22</time>
+                  <h4 class="title white no-margin">go语言学习之零</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://willxuecn.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <div class="clear"></div>
+<script>
+jQuery(document).ready(function($){
+    $('.vemoji-btn').text('😀');
+    $("#comments").on('click', 'span.vat',function(){
+        $(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
+        $('textarea#veditor').focus();
+    })
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+            if ($(window.location.hash).length) {
+                $('html, body').animate({scrollTop: $(window.location.hash).offset().top-200}, 600);
+                clearInterval(checkExist);
+            }
+        }, 100);
+    }
+})
+</script>
+
+              </div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://willxuecn.github.io/post/golang-learn-01-20161130/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('http://willxue.cn-bj.ufileos.com/golang1.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2016-11-30">2016-11-30</time>
+                      <h4 class="title usmall">
+                        <a href="https://willxuecn.github.io/post/golang-learn-01-20161130/">go语言学习（一）net/http包客户端实例练习</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://willxuecn.github.io/post/golang-learn-0-20161122/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('http://willxue.cn-bj.ufileos.com/nc-9.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2016-11-22">2016-11-22</time>
+                      <h4 class="title usmall">
+                        <a href="https://willxuecn.github.io/post/golang-learn-0-20161122/">go语言学习之零</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://willxuecn.github.io/post/git-cheat-sheet-20160412/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('http://willxue.cn-bj.ufileos.com/git-logo.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2016-04-12">2016-04-12</time>
+                      <h4 class="title usmall">
+                        <a href="https://willxuecn.github.io/post/git-cheat-sheet-20160412/">Git Cheat Sheet</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://willxuecn.github.io/tag/euPuGRw2l/" class="ctag ctag-0 ctag-euPuGRw2l" aria-label="">Golang</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/V-r-1dBE_/" class="ctag ctag-1 ctag-V-r-1dBE_" aria-label="">Git</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/xmLTo5E2-/" class="ctag ctag-2 ctag-xmLTo5E2-" aria-label="">Java</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/WCVZc6LMO/" class="ctag ctag-3 ctag-WCVZc6LMO" aria-label="">Tomcat</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/zr2ksHbR_/" class="ctag ctag-4 ctag-zr2ksHbR_" aria-label="">域名</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/R9_NO7fNG/" class="ctag ctag-5 ctag-R9_NO7fNG" aria-label="">hexo</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/i_EHnXIMQ/" class="ctag ctag-6 ctag-i_EHnXIMQ" aria-label="">教程</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/jGvDanz4w/" class="ctag ctag-7 ctag-jGvDanz4w" aria-label="">hello world</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/EwToOi5s_/" class="ctag ctag-8 ctag-EwToOi5s_" aria-label="">随笔</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://willxuecn.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">WillXue&#39;s Blog</a></h4>
+                    <p class="founder">一个好高骛远的码农</p>
+                    <div class="social">
+                      
+                          
+                            <a href="https://github.com/willxuecn" class="translate-effect" target="_blank"><i class="fa fa-github"></i></a>
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://willxuecn.github.io"><img src="\media\images\custom-footerLogo.jpg" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 13 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/valine/1.3.10/Valine.Pure.min.js"></script>
+<script>
+    new Valine({
+        el: '#comments',
+        appId: 'QImiFijLSOHYufsazlBVlwLg-gzGzoHsz' ,
+        appKey: 'AMcYaNHy9Y5OdH42k0d4uSED',
+        pageSize: 30,
+        placeholder: '既然来了，那就留个痕迹吧~',
+        visitor: true // 阅读量统计
+    })
+</script>
+    
+
+      
+    <script src="https://willxuecn.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

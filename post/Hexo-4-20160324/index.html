@@ -1,0 +1,642 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hexo系列教程之四：hexo的配置和优化 | WillXue&#39;s Blog</title>
+<meta name="description" content="一个好高骛远的码农" />
+<link rel="shortcut icon" href="https://willxuecn.github.io/favicon.ico">
+<link rel="stylesheet" href="https://willxuecn.github.io/styles/main.css">
+
+<script src="https://willxuecn.github.io/media/js/jquery.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/aos.js"></script>
+<script src="https://willxuecn.github.io/media/js/pace.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/view-image.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="
+
+前言
+
+前面写了点hexo主题next的一些简单配置，怎奈本人实在太懒，言语表达能力欠缺，写的文章质量太低，态度也有点问题，希望自己能慢慢坚持，努力改正，争取每天都写点。
+正文
+
+
+下面进入正题，现在很多主题已经把很多功能都合并进去，所..." />
+    <meta name="keywords" content="hexo,教程" />
+    <script src="https://willxuecn.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://willxuecn.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://willxuecn.github.io"><img src="/media/images/logoo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://willxuecn.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1587230074610" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('http://willxue.cn-bj.ufileos.com/hexo41.png');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2016-03-24"><i class="fa fa-calendar"></i><span class="lately">4 年前</span></time>
+              
+              <a href="https://willxuecn.github.io/post/Hexo-4-20160324/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/Hexo-4-20160324/"> </span>
+              </a>
+              <span id="/Hexo-4-20160324/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://willxuecn.github.io/tag/R9_NO7fNG/" class="ctag ctag-0 ctag-R9_NO7fNG" aria-label="">hexo</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/i_EHnXIMQ/" class="ctag ctag-1 ctag-i_EHnXIMQ" aria-label="">教程</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">Hexo系列教程之四：hexo的配置和优化</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <figure data-type="image" tabindex="1"><img src="http://willxue.cn-bj.ufileos.com/hexo41.png" alt="willxue" loading="lazy"></figure>
+<!--more-->
+<h1 id="前言">前言</h1>
+<hr>
+<p>前面写了点hexo主题next的一些简单配置，怎奈本人实在太懒，言语表达能力欠缺，写的文章质量太低，态度也有点问题，希望自己能慢慢坚持，努力改正，争取每天都写点。</p>
+<h1 id="正文">正文</h1>
+<hr>
+<blockquote>
+<p>下面进入正题，现在很多主题已经把很多功能都合并进去，所以操作起来相对简单一些了，以下介绍包含但不限于<code>next</code>主题。</p>
+</blockquote>
+<h2 id="多说评论">多说评论</h2>
+<p>给站点加入多说评论功能，基本所有主题都集成了，说一下基本操作，以及一些个性化设置。</p>
+<h3 id="添加多说评论">添加多说评论</h3>
+<ol>
+<li>
+<p>打开<a href="http://duoshuo.com/">多说</a>首页,点 <strong>我要安装</strong> ，登陆多说（微博或qq快捷登录），创建站点。<br>
+<img src="http://willxue.cn-bj.ufileos.com/hexo42.png" alt="willxue" loading="lazy"></p>
+</li>
+<li>
+<p>按下图进行输入创建评论站点。<br>
+<img src="http://willxue.cn-bj.ufileos.com/hexo43.png" alt="willxue" loading="lazy"></p>
+</li>
+<li>
+<p>创建完以后进入管理后台，在左侧菜单栏里找到工具，右侧代码里看到<code>short_name</code>，也就是刚才输入的多说域名。<br>
+<img src="http://willxue.cn-bj.ufileos.com/hexo44.png" alt="willxue" loading="lazy"></p>
+</li>
+<li>
+<p>打开 <code>主题配置文件</code>，找到 <code>duoshuo_shortname</code>，写到后面。不同主题可能名字不一样，操作都是一样的。</p>
+</li>
+</ol>
+<pre><code>duoshuo_shortname: imwillxue
+</code></pre>
+<h3 id="修改评论框css样式">修改评论框CSS样式</h3>
+<p>CSS好的可以自己写，详见<a href="http://dev.duoshuo.com/docs/4ff1cfd0397309552c000017">多说文档</a>。当然google一堆，我的就是google的，前端太烂。下面是我的代码，具体样式评论查看。</p>
+<pre><code>/*Head Start*/
+#ds-thread #ds-reset ul.ds-comments-tabs li.ds-tab a.ds-current {
+    border: 0px;
+    color: #6D6D6B;
+    text-shadow: none;
+    background: #F3F3F3;
+}
+
+#ds-thread #ds-reset .ds-highlight {
+    font-family: Microsoft YaHei, &quot;Helvetica Neue&quot;, Helvetica, Arial, Sans-serif;
+    ;font-size: 100%;
+    color: #6D6D6B !important;
+}
+
+#ds-thread #ds-reset ul.ds-comments-tabs li.ds-tab a.ds-current:hover {
+    color: #696a52;
+    background: #F2F2F2;
+}
+
+#ds-thread #ds-reset a.ds-highlight:hover {
+    color: #696a52 !important;
+}
+
+#ds-thread {
+    padding-left: 15px;
+}
+
+#ds-thread #ds-reset li.ds-post,#ds-thread #ds-reset #ds-hot-posts {
+    overflow: visible;
+}
+
+#ds-thread #ds-reset .ds-post-self {
+    padding: 10px 0 10px 10px;
+}
+
+#ds-thread #ds-reset li.ds-post,#ds-thread #ds-reset .ds-post-self {
+    border: 0 !important;
+}
+
+#ds-reset .ds-avatar, #ds-thread #ds-reset ul.ds-children .ds-avatar {
+    top: 15px;
+    left: -20px;
+    padding: 5px;
+    width: 36px;
+    height: 36px;
+    box-shadow: -1px 0 1px rgba(0,0,0,.15) inset;
+    border-radius: 46px;
+    background: #FAFAFA;
+}
+
+#ds-thread .ds-avatar a {
+    display: inline-block;
+    padding: 1px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #b9baa6;
+    border-radius: 50%;
+    background-color: #fff !important;
+}
+
+#ds-thread .ds-avatar a:hover {
+}
+
+#ds-thread .ds-avatar &gt; img {
+    margin: 2px 0 0 2px;
+}
+
+#ds-thread #ds-reset .ds-replybox {
+    box-shadow: none;
+}
+
+#ds-thread #ds-reset ul.ds-children .ds-replybox.ds-inline-replybox a.ds-avatar,
+#ds-reset .ds-replybox.ds-inline-replybox a.ds-avatar {
+    left: 0;
+    top: 0;
+    padding: 0;
+    width: 32px !important;
+    height: 32px !important;
+    background: none;
+    box-shadow: none;
+}
+
+#ds-reset .ds-replybox.ds-inline-replybox a.ds-avatar img {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 50%;
+}
+
+#ds-reset .ds-replybox a.ds-avatar,
+#ds-reset .ds-replybox .ds-avatar img {
+    padding: 0;
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 5px;
+}
+
+#ds-reset .ds-avatar img {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 32px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.22);
+    -webkit-transition: .8s all ease-in-out;
+    -moz-transition: .4s all ease-in-out;
+    -o-transition: .4s all ease-in-out;
+    -ms-transition: .4s all ease-in-out;
+    transition: .4s all ease-in-out;
+}
+
+.ds-post-self:hover .ds-avatar img {
+    -webkit-transform: rotateX(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
+#ds-thread #ds-reset .ds-comment-body {
+    -webkit-transition-delay: initial;
+    -webkit-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: initial;
+    background: #F7F7F7;
+    padding: 15px 15px 15px 47px;
+    border-radius: 5px;
+    box-shadow: #B8B9B9 0 1px 3px;
+    border: white 1px solid;
+}
+
+#ds-thread #ds-reset ul.ds-children .ds-comment-body {
+    padding-left: 15px;
+}
+
+#ds-thread #ds-reset .ds-comment-body p {
+    color: #787968;
+}
+
+#ds-thread #ds-reset .ds-comments {
+    border-bottom: 0px;
+}
+
+#ds-thread #ds-reset .ds-powered-by {
+    display: none;
+}
+
+#ds-thread #ds-reset .ds-comments a.ds-user-name {
+    font-weight: normal;
+    color: #3D3D3D !important;
+}
+
+#ds-thread #ds-reset .ds-comments a.ds-user-name:hover {
+    color: #D32 !important;
+}
+
+#ds-thread #ds-reset #ds-bubble {
+    display: none !important;
+}
+
+#ds-thread #ds-reset #ds-hot-posts {
+    border: 0;
+}
+
+#ds-reset #ds-hot-posts .ds-gradient-bg {
+    background: none;
+}
+
+#ds-thread #ds-reset .ds-comment-body:hover {
+    background-color: #F1F1F1;
+    -webkit-transition-delay: initial;
+    -webkit-transition-duration: 0.4s;
+    -webkit-transition-property: all;
+    -webkit-transition-timing-function: initial;
+}
+/*Head End*/
+</code></pre>
+<p>打开多说管理后台，把上面的代码复制进去。<br>
+<img src="http://willxue.cn-bj.ufileos.com/hexo45.png" alt="willxue" loading="lazy"></p>
+<h3 id="显示ua及博主">显示UA及博主</h3>
+<p>显示ua功能，next主题已经集成了，只需要在配置文件设置一下就行了，效果看下图。<br>
+<img src="http://willxue.cn-bj.ufileos.com/hexo46.png" alt="willxue" loading="lazy"></p>
+<pre><code>duoshuo_info:
+  ua_enable: true  #是否显示ua
+  admin_enable: true #是否显示博主
+  user_id: 6262178932196377345  #多说用户id
+  admin_nickname: 神 #博主昵称自定义
+</code></pre>
+<p><strong>注： 多说id就是打开多说个人中心<a href="http://duoshuo.com/settings/">http://duoshuo.com/settings/</a>，点击你的用户名地址会出现一串数字就是多说id。</strong></p>
+<h4 id="其他方法">其他方法</h4>
+<p>对于很多没有集成这个功能的主题，可以参考一下文章或插件。<br>
+多说UA插件 - <a href="http://gerald.top/code/duoshuo-ua">http://gerald.top/code/duoshuo-ua</a><br>
+ua-parser-js - <a href="https://github.com/faisalman/ua-parser-js">https://github.com/faisalman/ua-parser-js</a><br>
+另外，还有本地化embed.js的，有兴趣的可以google一下。</p>
+<h2 id="rss和sitemap">RSS和sitemap</h2>
+<ol>
+<li>安装RSS和sitemap插件</li>
+</ol>
+<pre><code>npm install hexo-generator-feed --save
+npm install hexo-generator-sitemap --save
+</code></pre>
+<ol start="2">
+<li>开启RSS和sitemap功能，编辑站点配置文件 <code>hexo/_config.yml</code></li>
+</ol>
+<pre><code>feed: 
+  type: atom  #feed 类型 
+  path: atom.xml  #rss 路径 
+  limit: 20  #在 rss 中最多生成的文章数(0显示所有)
+</code></pre>
+<p>NexT 中 RSS 有三个设置选项，满足特定的使用场景。 更改 <code>主题配置文件</code>，设定 <code>rss</code> 字段的值：</p>
+<ul>
+<li>false：禁用 RSS，不在页面上显示 RSS 连接。</li>
+<li>留空：使用 Hexo 生成的 Feed 链接。</li>
+<li>具体的链接地址：适用于已经烧制过 Feed 的情形。</li>
+</ul>
+<p>我们这里留空就行了。</p>
+<p><strong>将生成出来的sitemap.xml文件提交给搜索引擎，后面介绍。</strong></p>
+<h2 id="腾讯公益404页面">腾讯公益404页面</h2>
+<p>在 <code>hexo/source</code> 文件夹下新建404.html，推荐使用腾讯公益404。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+
+	&lt;head&gt;
+		&lt;meta charset=&quot;UTF-8&quot;&gt;
+		&lt;title&gt;404&lt;/title&gt;
+	&lt;/head&gt;
+
+	&lt;body&gt;
+		&lt;script type=&quot;text/javascript&quot; src=&quot;http://www.qq.com/404/search_children.js&quot; 
+		charset=&quot;utf-8&quot; homePageUrl=&quot;http://willxue.top&quot; homePageName=&quot;我的博客&quot;&gt;&lt;/script&gt;
+	&lt;/body&gt;
+
+&lt;/html&gt;
+</code></pre>
+<h1 id="常见错误">常见错误</h1>
+<hr>
+<ul>
+<li>修改配置文件时注意 <code>YAML</code> 语法，参数冒号: 后一定要留空格</li>
+<li>中文乱码请修改文件编码格式为UTF-8</li>
+<li>GitHub同步慢或者失败请使用翻墙代理加速</li>
+</ul>
+<h1 id="最后">最后</h1>
+<hr>
+<p>不总结了，且看下回分解。</p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('http://willxue.cn-bj.ufileos.com/hexo51.png');"></div>
+                 <a href="https://willxuecn.github.io/post/Hexo-5-20160325/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2016-03-25">2016-03-25</time>
+                  <h4 class="title white no-margin">Hexo系列教程之五：hexo博客同时托管在github和coding</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://willxuecn.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('http://willxue.cn-bj.ufileos.com/hexo31.png');"></div>
+                 <a href="https://willxuecn.github.io/post/Hexo-3-20160322/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2016-03-22">2016-03-22</time>
+                  <h4 class="title white no-margin">Hexo系列教程之三：next主题的配置和优化</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://willxuecn.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <div class="clear"></div>
+<script>
+jQuery(document).ready(function($){
+    $('.vemoji-btn').text('😀');
+    $("#comments").on('click', 'span.vat',function(){
+        $(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
+        $('textarea#veditor').focus();
+    })
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+            if ($(window.location.hash).length) {
+                $('html, body').animate({scrollTop: $(window.location.hash).offset().top-200}, 600);
+                clearInterval(checkExist);
+            }
+        }, 100);
+    }
+})
+</script>
+
+              </div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://willxuecn.github.io/post/golang-learn-01-20161130/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('http://willxue.cn-bj.ufileos.com/golang1.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2016-11-30">2016-11-30</time>
+                      <h4 class="title usmall">
+                        <a href="https://willxuecn.github.io/post/golang-learn-01-20161130/">go语言学习（一）net/http包客户端实例练习</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://willxuecn.github.io/post/golang-learn-0-20161122/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('http://willxue.cn-bj.ufileos.com/nc-9.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2016-11-22">2016-11-22</time>
+                      <h4 class="title usmall">
+                        <a href="https://willxuecn.github.io/post/golang-learn-0-20161122/">go语言学习之零</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://willxuecn.github.io/post/git-cheat-sheet-20160412/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('http://willxue.cn-bj.ufileos.com/git-logo.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2016-04-12">2016-04-12</time>
+                      <h4 class="title usmall">
+                        <a href="https://willxuecn.github.io/post/git-cheat-sheet-20160412/">Git Cheat Sheet</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://willxuecn.github.io/tag/euPuGRw2l/" class="ctag ctag-0 ctag-euPuGRw2l" aria-label="">Golang</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/V-r-1dBE_/" class="ctag ctag-1 ctag-V-r-1dBE_" aria-label="">Git</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/xmLTo5E2-/" class="ctag ctag-2 ctag-xmLTo5E2-" aria-label="">Java</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/WCVZc6LMO/" class="ctag ctag-3 ctag-WCVZc6LMO" aria-label="">Tomcat</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/zr2ksHbR_/" class="ctag ctag-4 ctag-zr2ksHbR_" aria-label="">域名</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/R9_NO7fNG/" class="ctag ctag-5 ctag-R9_NO7fNG" aria-label="">hexo</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/i_EHnXIMQ/" class="ctag ctag-6 ctag-i_EHnXIMQ" aria-label="">教程</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/jGvDanz4w/" class="ctag ctag-7 ctag-jGvDanz4w" aria-label="">hello world</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/EwToOi5s_/" class="ctag ctag-8 ctag-EwToOi5s_" aria-label="">随笔</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://willxuecn.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">WillXue&#39;s Blog</a></h4>
+                    <p class="founder">一个好高骛远的码农</p>
+                    <div class="social">
+                      
+                          
+                            <a href="https://github.com/willxuecn" class="translate-effect" target="_blank"><i class="fa fa-github"></i></a>
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://willxuecn.github.io"><img src="\media\images\custom-footerLogo.jpg" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 13 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/valine/1.3.10/Valine.Pure.min.js"></script>
+<script>
+    new Valine({
+        el: '#comments',
+        appId: 'QImiFijLSOHYufsazlBVlwLg-gzGzoHsz' ,
+        appKey: 'AMcYaNHy9Y5OdH42k0d4uSED',
+        pageSize: 30,
+        placeholder: '既然来了，那就留个痕迹吧~',
+        visitor: true // 阅读量统计
+    })
+</script>
+    
+
+      
+    <script src="https://willxuecn.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

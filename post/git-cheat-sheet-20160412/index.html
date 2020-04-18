@@ -1,0 +1,656 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Git Cheat Sheet | WillXue&#39;s Blog</title>
+<meta name="description" content="一个好高骛远的码农" />
+<link rel="shortcut icon" href="https://willxuecn.github.io/favicon.ico">
+<link rel="stylesheet" href="https://willxuecn.github.io/styles/main.css">
+
+<script src="https://willxuecn.github.io/media/js/jquery.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/aos.js"></script>
+<script src="https://willxuecn.github.io/media/js/pace.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/view-image.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="
+
+Git
+
+创建
+复制一个已创建的仓库:
+$ git clone ssh://user@domain.com/repo.git
+
+创建一个新的本地仓库:
+$ git init
+
+
+本地修改
+显示工作路径下已修改的文件：
+$ git sta..." />
+    <meta name="keywords" content="Git" />
+    <script src="https://willxuecn.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://willxuecn.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://willxuecn.github.io"><img src="/media/images/logoo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://willxuecn.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1587230074610" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('http://willxue.cn-bj.ufileos.com/git-logo.png');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2016-04-12"><i class="fa fa-calendar"></i><span class="lately">4 年前</span></time>
+              
+              <a href="https://willxuecn.github.io/post/git-cheat-sheet-20160412/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/git-cheat-sheet-20160412/"> </span>
+              </a>
+              <span id="/git-cheat-sheet-20160412/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://willxuecn.github.io/tag/V-r-1dBE_/" class="ctag ctag-0 ctag-V-r-1dBE_" aria-label="">Git</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">Git Cheat Sheet</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <figure data-type="image" tabindex="1"><img src="http://willxue.cn-bj.ufileos.com/git-logo.png" alt="git" loading="lazy"></figure>
+<!--more-->
+<h1 id="git">Git</h1>
+<hr>
+<h2 id="创建">创建</h2>
+<p>复制一个已创建的仓库:</p>
+<pre><code>$ git clone ssh://user@domain.com/repo.git
+</code></pre>
+<p>创建一个新的本地仓库:</p>
+<pre><code>$ git init
+</code></pre>
+<hr>
+<h2 id="本地修改">本地修改</h2>
+<p>显示工作路径下已修改的文件：</p>
+<pre><code>$ git status
+</code></pre>
+<p>显示与上次提交版本文件的不同：</p>
+<pre><code>$ git diff
+</code></pre>
+<p>把当前所有修改添加到下次提交中：</p>
+<pre><code>$ git add
+</code></pre>
+<p>把对某个文件的修改添加到下次提交中：</p>
+<pre><code>$ git add -p &lt;file&gt;
+</code></pre>
+<p>提交本地的所有修改：</p>
+<pre><code>$ git commit -a
+</code></pre>
+<p>提交之前已标记的变化：</p>
+<pre><code>$ git commit
+</code></pre>
+<p>附加消息提交：</p>
+<pre><code>$ git commit -m 'message here'
+</code></pre>
+<p>提交，并将提交时间设置为之前的某个日期:</p>
+<pre><code>git commit --date=&quot;`date --date='n day ago'`&quot; -am &quot;Commit Message&quot;
+</code></pre>
+<p>修改上次提交<br/><br>
+<em><sub>请勿修改已发布的提交记录!</sub></em></p>
+<pre><code>$ git commit --amend
+</code></pre>
+<p>把当前分支中未提交的修改移动到其他分支</p>
+<pre><code>git stash
+git checkout branch2
+git stash pop
+</code></pre>
+<hr>
+<h2 id="搜索">搜索</h2>
+<p>从当前目录的所有文件中查找文本内容：</p>
+<pre><code>$ git grep &quot;Hello&quot;
+</code></pre>
+<p>在某一版本中搜索文本：</p>
+<pre><code>$ git grep &quot;Hello&quot; v2.5
+</code></pre>
+<hr>
+<h2 id="提交历史">提交历史</h2>
+<p>从最新提交开始，显示所有的提交记录（显示hash， 作者信息，提交的标题和时间）：</p>
+<pre><code>$ git log
+</code></pre>
+<p>显示所有提交（仅显示提交的hash和message）：</p>
+<pre><code>$ git log --oneline
+</code></pre>
+<p>显示某个用户的所有提交：</p>
+<pre><code>$ git log --author=&quot;username&quot;
+</code></pre>
+<p>显示某个文件的所有修改：</p>
+<pre><code>$ git log -p &lt;file&gt;
+</code></pre>
+<p>谁，在什么时间，修改了文件的什么内容：</p>
+<pre><code>$ git blame &lt;file&gt;
+</code></pre>
+<hr>
+<h2 id="分支与标签">分支与标签</h2>
+<p>列出所有的分支：</p>
+<pre><code>$ git branch
+</code></pre>
+<p>切换分支：</p>
+<pre><code>$ git checkout &lt;branch&gt;
+</code></pre>
+<p>创建并切换到新分支:</p>
+<pre><code>$ git checkout -b &lt;branch&gt;
+</code></pre>
+<p>基于当前分支创建新分支：</p>
+<pre><code>$ git branch &lt;new-branch&gt;
+</code></pre>
+<p>基于远程分支创建新的可追溯的分支：</p>
+<pre><code>$ git branch --track &lt;new-branch&gt; &lt;remote-branch&gt;
+</code></pre>
+<p>删除本地分支:</p>
+<pre><code>$ git branch -d &lt;branch&gt;
+</code></pre>
+<p>强制删除一个本地分支：<br><br>
+<em><sub>将会丢失未合并的修改！</sub></em></p>
+<pre><code>$ git branch -D &lt;branch&gt;
+</code></pre>
+<p>给当前版本打标签：</p>
+<pre><code>$ git tag &lt;tag-name&gt;
+</code></pre>
+<hr>
+<h2 id="更新与发布">更新与发布</h2>
+<p>列出当前配置的远程端：</p>
+<pre><code>$ git remote -v
+</code></pre>
+<p>显示远程端的信息：</p>
+<pre><code>$ git remote show &lt;remote&gt;
+</code></pre>
+<p>添加新的远程端：</p>
+<pre><code>$ git remote add &lt;remote&gt; &lt;url&gt;
+</code></pre>
+<p>下载远程端版本，但不合并到HEAD中：</p>
+<pre><code>$ git fetch &lt;remote&gt;
+</code></pre>
+<p>下载远程端版本，并自动与HEAD版本合并：</p>
+<pre><code>$ git remote pull &lt;remote&gt; &lt;url&gt;
+</code></pre>
+<p>将远程端版本合并到本地版本中：</p>
+<pre><code>$ git pull origin master
+</code></pre>
+<p>将本地版本发布到远程端：</p>
+<pre><code>$ git push remote &lt;remote&gt; &lt;branch&gt;
+</code></pre>
+<p>删除远程端分支：</p>
+<pre><code>$ git push &lt;remote&gt; :&lt;branch&gt; (since Git v1.5.0)
+or
+git push &lt;remote&gt; --delete &lt;branch&gt; (since Git v1.7.0)
+</code></pre>
+<p>发布标签:</p>
+<pre><code>$ git push --tags
+</code></pre>
+<hr>
+<h2 id="合并与重置">合并与重置</h2>
+<p>将分支合并到当前HEAD中：</p>
+<pre><code>$ git merge &lt;branch&gt;
+</code></pre>
+<p>将当前HEAD版本重置到分支中:<br><br>
+<em><sub>请勿重置已发布的提交!</sub></em></p>
+<pre><code>$ git rebase &lt;branch&gt;
+</code></pre>
+<p>退出重置:</p>
+<pre><code>$ git rebase --abort
+</code></pre>
+<p>解决冲突后继续重置：</p>
+<pre><code>$ git rebase --continue
+</code></pre>
+<p>使用配置好的merge tool 解决冲突：</p>
+<pre><code>$ git mergetool
+</code></pre>
+<p>在编辑器中手动解决冲突后，标记文件为<code>已解决冲突</code></p>
+<pre><code>$ git add &lt;resolved-file&gt;
+</code></pre>
+<pre><code>$ git rm &lt;resolved-file&gt;
+</code></pre>
+<hr>
+<h2 id="撤销">撤销</h2>
+<p>放弃工作目录下的所有修改：</p>
+<pre><code>$ git reset --hard HEAD
+</code></pre>
+<p>移除缓存区的所有文件（i.e. 撤销上次<code>git add</code>）:</p>
+<pre><code>$ git reset HEAD
+</code></pre>
+<p>放弃某个文件的所有本地修改：</p>
+<pre><code>$ git checkout HEAD &lt;file&gt;
+</code></pre>
+<p>重置一个提交（通过创建一个截然不同的新提交）</p>
+<pre><code>$ git revert &lt;commit&gt;
+</code></pre>
+<p>将HEAD重置到指定的版本，并抛弃该版本之后的所有修改：</p>
+<pre><code>$ git reset --hard &lt;commit&gt;
+</code></pre>
+<p>将HEAD重置到上一次提交的版本，并将之后的修改标记为未添加到缓存区的修改：</p>
+<pre><code>$ git reset &lt;commit&gt;
+</code></pre>
+<p>将HEAD重置到上一次提交的版本，并保留未提交的本地修改：</p>
+<pre><code>$ git reset --keep &lt;commit&gt;
+</code></pre>
+<hr>
+<h1 id="git-flow">Git-Flow</h1>
+<hr>
+<h2 id="安装">安装</h2>
+<ul>
+<li>你需要有一个可以工作的 git 作为前提。</li>
+<li>Git flow 可以工作在 OSX, Linux 和 Windows之下</li>
+</ul>
+<h3 id="osx-homebrew">OSX Homebrew:</h3>
+<pre><code>$ brew install git-flow
+</code></pre>
+<h3 id="osx-macports">OSX Macports:</h3>
+<pre><code>$ port install git-flow
+</code></pre>
+<h3 id="linux">Linux:</h3>
+<pre><code>$ apt-get install git-flow
+</code></pre>
+<h3 id="windows-cygwin">Windows (Cygwin):</h3>
+<p>安装 git-flow, 你需要 wget 和 util-linux。</p>
+<pre><code>$ wget -q -O - --no-check-certificate https://github.com/nvie/gitflow/raw/develop/contrib/gitflow-installer.sh | bash
+</code></pre>
+<hr>
+<h2 id="开始">开始</h2>
+<ul>
+<li>为了自定义你的项目，Git flow 需要初始化过程。</li>
+<li>使用 git-flow，从初始化一个现有的 git 库内开始。</li>
+<li>初始化，你必须回答几个关于分支的命名约定的问题。建议使用默认值。</li>
+</ul>
+<pre><code>git flow init
+</code></pre>
+<hr>
+<h2 id="特性">特性</h2>
+<ul>
+<li>为即将发布的版本开发新功能特性。</li>
+<li>这通常只存在开发者的库中。</li>
+</ul>
+<h3 id="创建一个新特性">创建一个新特性:</h3>
+<p>下面操作创建了一个新的feature分支，并切换到该分支</p>
+<pre><code>git flow feature start MYFEATURE
+</code></pre>
+<h3 id="完成新特性的开发">完成新特性的开发:</h3>
+<p>完成开发新特性。这个动作执行下面的操作：</p>
+<ol>
+<li>合并 MYFEATURE 分支到 'develop'</li>
+<li>删除这个新特性分支</li>
+<li>切换回 'develop' 分支</li>
+</ol>
+<pre><code>git flow feature finish MYFEATURE
+</code></pre>
+<h3 id="发布新特性">发布新特性:</h3>
+<p>你是否合作开发一项新特性？<br>
+发布新特性分支到远程服务器，所以，其它用户也可以使用这分支。</p>
+<pre><code>git flow feature publish MYFEATURE
+</code></pre>
+<h3 id="取得一个发布的新特性分支">取得一个发布的新特性分支:</h3>
+<p>取得其它用户发布的新特性分支。</p>
+<pre><code>git flow feature pull origin MYFEATURE
+</code></pre>
+<h3 id="追溯远端上的特性">追溯远端上的特性:</h3>
+<p>通过下面命令追溯远端上的特性</p>
+<pre><code>git flow feature track MYFEATURE
+</code></pre>
+<hr>
+<h2 id="做一个release版本">做一个release版本</h2>
+<ul>
+<li>支持一个新的用于生产环境的发布版本。</li>
+<li>允许修正小问题，并为发布版本准备元数据。</li>
+</ul>
+<h3 id="开始创建release版本">开始创建release版本:</h3>
+<ul>
+<li>开始创建release版本，使用 git flow release 命令。</li>
+<li>'release' 分支的创建基于 'develop' 分支。</li>
+<li>你可以选择提供一个 [BASE]参数，即提交记录的 sha-1 hash 值，来开启动 release 分支。</li>
+<li>这个提交记录的 sha-1 hash 值必须是'develop' 分支下的。</li>
+</ul>
+<pre><code>git flow release start RELEASE [BASE]
+</code></pre>
+<p>创建 release 分支之后立即发布允许其它用户向这个 release 分支提交内容是个明智的做法。命令十分类似发布新特性：</p>
+<pre><code>git flow release publish RELEASE
+</code></pre>
+<p>(你可以通过<br>
+<code>git flow release track RELEASE</code> 命令追溯远端的 release 版本)</p>
+<h3 id="完成-release-版本">完成 release 版本:</h3>
+<p>完成 release 版本是一个大 git 分支操作。它执行下面几个动作：</p>
+<ol>
+<li>归并 release 分支到 'master' 分支。</li>
+<li>用 release 分支名打 Tag</li>
+<li>归并 release 分支到 'develop'</li>
+<li>移除 release 分支。</li>
+</ol>
+<pre><code>git flow release finish RELEASE
+</code></pre>
+<p>不要忘记使用<code>git push --tags</code>将tags推送到远端</p>
+<hr>
+<h2 id="紧急修复">紧急修复</h2>
+<p>紧急修复来自这样的需求：生产环境的版本处于一个不预期状态，需要立即修正。有可能是需要修正 master 分支上某个 TAG 标记的生产版本。</p>
+<h3 id="开始-git-flow-紧急修复">开始 git flow 紧急修复:</h3>
+<p>像其它 git flow 命令一样, 紧急修复分支开始自：</p>
+<pre><code>$ git flow hotfix start VERSION [BASENAME]
+</code></pre>
+<p>VERSION 参数标记着修正版本。你可以从 <code>[BASENAME]开始，</code>[BASENAME]`为finish release时填写的版本号</p>
+<h3 id="完成紧急修复">完成紧急修复:</h3>
+<p>当完成紧急修复分支，代码归并回 develop 和 master 分支。相应地，master 分支打上修正版本的 TAG。</p>
+<pre><code>git flow hotfix finish VERSION
+</code></pre>
+<hr>
+<h2 id="commands">Commands</h2>
+<figure data-type="image" tabindex="2"><img src="http://willxue.cn-bj.ufileos.com/git-flow-commands.png" alt="git-flow-commands" loading="lazy"></figure>
+<h1 id="来源">来源</h1>
+<p><a href="https://github.com/ArslanBilal/Git-Cheat-Sheet/blob/master/other-sheets/git-cheat-sheet-zh.md">ArslanBilal</a></p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('http://willxue.cn-bj.ufileos.com/nc-9.jpg');"></div>
+                 <a href="https://willxuecn.github.io/post/golang-learn-0-20161122/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2016-11-22">2016-11-22</time>
+                  <h4 class="title white no-margin">go语言学习之零</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://willxuecn.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('http://willxue.cn-bj.ufileos.com/nc-7.jpg');"></div>
+                 <a href="https://willxuecn.github.io/post/java-lang-OutOfMemoryError-PermGen-space-20160406/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2016-04-06">2016-04-06</time>
+                  <h4 class="title white no-margin">java.lang.OutOfMemoryError: PermGen space</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://willxuecn.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <div class="clear"></div>
+<script>
+jQuery(document).ready(function($){
+    $('.vemoji-btn').text('😀');
+    $("#comments").on('click', 'span.vat',function(){
+        $(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
+        $('textarea#veditor').focus();
+    })
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+            if ($(window.location.hash).length) {
+                $('html, body').animate({scrollTop: $(window.location.hash).offset().top-200}, 600);
+                clearInterval(checkExist);
+            }
+        }, 100);
+    }
+})
+</script>
+
+              </div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://willxuecn.github.io/post/golang-learn-01-20161130/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('http://willxue.cn-bj.ufileos.com/golang1.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2016-11-30">2016-11-30</time>
+                      <h4 class="title usmall">
+                        <a href="https://willxuecn.github.io/post/golang-learn-01-20161130/">go语言学习（一）net/http包客户端实例练习</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://willxuecn.github.io/post/golang-learn-0-20161122/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('http://willxue.cn-bj.ufileos.com/nc-9.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2016-11-22">2016-11-22</time>
+                      <h4 class="title usmall">
+                        <a href="https://willxuecn.github.io/post/golang-learn-0-20161122/">go语言学习之零</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://willxuecn.github.io/post/git-cheat-sheet-20160412/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('http://willxue.cn-bj.ufileos.com/git-logo.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2016-04-12">2016-04-12</time>
+                      <h4 class="title usmall">
+                        <a href="https://willxuecn.github.io/post/git-cheat-sheet-20160412/">Git Cheat Sheet</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://willxuecn.github.io/tag/euPuGRw2l/" class="ctag ctag-0 ctag-euPuGRw2l" aria-label="">Golang</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/V-r-1dBE_/" class="ctag ctag-1 ctag-V-r-1dBE_" aria-label="">Git</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/xmLTo5E2-/" class="ctag ctag-2 ctag-xmLTo5E2-" aria-label="">Java</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/WCVZc6LMO/" class="ctag ctag-3 ctag-WCVZc6LMO" aria-label="">Tomcat</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/zr2ksHbR_/" class="ctag ctag-4 ctag-zr2ksHbR_" aria-label="">域名</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/R9_NO7fNG/" class="ctag ctag-5 ctag-R9_NO7fNG" aria-label="">hexo</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/i_EHnXIMQ/" class="ctag ctag-6 ctag-i_EHnXIMQ" aria-label="">教程</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/jGvDanz4w/" class="ctag ctag-7 ctag-jGvDanz4w" aria-label="">hello world</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/EwToOi5s_/" class="ctag ctag-8 ctag-EwToOi5s_" aria-label="">随笔</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://willxuecn.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">WillXue&#39;s Blog</a></h4>
+                    <p class="founder">一个好高骛远的码农</p>
+                    <div class="social">
+                      
+                          
+                            <a href="https://github.com/willxuecn" class="translate-effect" target="_blank"><i class="fa fa-github"></i></a>
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://willxuecn.github.io"><img src="\media\images\custom-footerLogo.jpg" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 13 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/valine/1.3.10/Valine.Pure.min.js"></script>
+<script>
+    new Valine({
+        el: '#comments',
+        appId: 'QImiFijLSOHYufsazlBVlwLg-gzGzoHsz' ,
+        appKey: 'AMcYaNHy9Y5OdH42k0d4uSED',
+        pageSize: 30,
+        placeholder: '既然来了，那就留个痕迹吧~',
+        visitor: true // 阅读量统计
+    })
+</script>
+    
+
+      
+    <script src="https://willxuecn.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

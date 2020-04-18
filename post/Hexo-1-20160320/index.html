@@ -1,0 +1,509 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hexo系列教程之一：hexo+github搭建独立博客 | WillXue&#39;s Blog</title>
+<meta name="description" content="一个好高骛远的码农" />
+<link rel="shortcut icon" href="https://willxuecn.github.io/favicon.ico">
+<link rel="stylesheet" href="https://willxuecn.github.io/styles/main.css">
+
+<script src="https://willxuecn.github.io/media/js/jquery.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/aos.js"></script>
+<script src="https://willxuecn.github.io/media/js/pace.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/view-image.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="前言
+
+引用一下阮一峰--喜欢写Blog的人，会经历三个阶段。
+
+第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。
+
+
+第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。
+
+
+第三阶段，觉得独立博客的管理太..." />
+    <meta name="keywords" content="hexo,教程" />
+    <script src="https://willxuecn.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://willxuecn.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://willxuecn.github.io"><img src="/media/images/logoo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://willxuecn.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1587230074610" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('http://willxue.cn-bj.ufileos.com/hexo%2Bgithub.png');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2016-03-20"><i class="fa fa-calendar"></i><span class="lately">4 年前</span></time>
+              
+              <a href="https://willxuecn.github.io/post/Hexo-1-20160320/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/Hexo-1-20160320/"> </span>
+              </a>
+              <span id="/Hexo-1-20160320/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://willxuecn.github.io/tag/R9_NO7fNG/" class="ctag ctag-0 ctag-R9_NO7fNG" aria-label="">hexo</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/i_EHnXIMQ/" class="ctag ctag-1 ctag-i_EHnXIMQ" aria-label="">教程</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">Hexo系列教程之一：hexo+github搭建独立博客</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <h1 id="前言">前言</h1>
+<hr>
+<p>引用一下<a href="http://www.ruanyifeng.com/blog/2012/08/blogging_with_jekyll.html">阮一峰</a>--喜欢写Blog的人，会经历三个阶段。</p>
+<blockquote>
+<p>第一阶段，刚接触Blog，觉得很新鲜，试着选择一个免费空间来写。</p>
+</blockquote>
+<blockquote>
+<p>第二阶段，发现免费空间限制太多，就自己购买域名和空间，搭建独立博客。</p>
+</blockquote>
+<blockquote>
+<p>第三阶段，觉得独立博客的管理太麻烦，最好在保留控制权的前提下，让别人来管，自己只负责写文章。</p>
+</blockquote>
+<p>对我这种不太喜欢写blog的人，没经历过第一二阶段，直接跳到了第三阶段，哈哈，也希望以后能多多坚持，记录人生（=<sup>_</sup>=）。</p>
+<h1 id="正文">正文</h1>
+<hr>
+<p><strong>注意</strong> 本文主要针对<code>Windows</code>平台和<code>Hexo 3.x</code>。<code>Linux</code>和<code>Mac</code>用户可以参考<a href="https://hexo.io/zh-cn/docs/index.html">官方文档</a>。</p>
+<h2 id="安装git">安装Git</h2>
+<p>Windows下请下载并安装 <a href="https://git-scm.com/download/win">git</a>。</p>
+<blockquote>
+<p>作用：把本地的hexo代码提交到github上去。</p>
+</blockquote>
+<h2 id="安装nodejs">安装Node.js</h2>
+<p>点击<a href="https://nodejs.org/en">Node.js</a>下载。</p>
+<blockquote>
+<p>作用：hexo运行环境，用来创建hexo博客框架。</p>
+</blockquote>
+<p><strong>以上两个软件安装很简单，按照步骤来就行了，就不一一赘述了。</strong></p>
+<h2 id="安装hexo">安装Hexo</h2>
+<p>运行环境安装玩以后，下面就进入正题了。<br>
+安装前先介绍几个hexo常用的命令,#后面为注释。</p>
+<pre><code>hexo g   #完整命令为hexo generate,用于生成静态文件
+hexo s   #完整命令为hexo server,用于启动服务器，主要用来本地预览
+hexo d   #完整命令为hexo deploy,用于将本地文件发布到github上
+hexo n   #完整命令为hexo new,用于新建一篇文章
+hexo clean   #清除生成的文件
+</code></pre>
+<p>安装很简单，在任意位置右键看到<code>Git Bash Here</code>。<br>
+<img src="http://willxue.cn-bj.ufileos.com/hexo11.png" alt="git" loading="lazy"><br>
+打开git命令窗口，输入</p>
+<pre><code>npm install -g hexo 
+</code></pre>
+<p>当然国内的网可能反应很慢如果长时间没回应的话，可以换成淘宝npm镜像。</p>
+<pre><code>npm config set registry  &quot;https://registry.npm.taobao.org&quot;
+</code></pre>
+<p>可以参考<a href="http://www.tuicool.com/articles/UVR3qqA">推酷</a>和<a href="http://yijiebuyi.com/blog/b12eac891cdc5f0dff127ae18dc386d4.html">一介布衣</a>这篇文章。</p>
+<p>安装完成后，根据自己喜好建立目录（如F:\hexo），进入目录右键<code>Git Bash Here</code>，打开命令窗口输入：</p>
+<pre><code>hexo init
+</code></pre>
+<p>Hexo 即会自动在目标文件夹建立网站所需要的所有文件。<br>
+安装依赖包</p>
+<pre><code>npm install
+</code></pre>
+<p>新建完成后，指定文件夹的目录如下：</p>
+<pre><code>.
+├── _config.yml
+├── package.json
+├── scaffolds
+├── source
+|   ├── _drafts
+|   └── _posts
+└── themes
+</code></pre>
+<p>下面可以简单的查看一下效果，输入命令：</p>
+<pre><code>hexo s
+</code></pre>
+<p>然后用浏览器访问<code>http://localhost:4000</code>，应该能看到默认的效果了（自带主题landscape）。</p>
+<h2 id="部署到github">部署到Github</h2>
+<p>本地环境搭建好以后，就该发布到互联网，让别人可以访问，我们选择github pages。</p>
+<h3 id="创建仓库">创建仓库</h3>
+<ol>
+<li>注册<a href="https://github.com/">github</a>账号并登录进入个人中心。<br>
+<img src="http://willxue.cn-bj.ufileos.com/hexo12.png" alt="github" loading="lazy"></li>
+<li>点击Respositories，然后New,新建一个仓库，如下图，注意仓库名必须为 你的用户名.github.io，例如我的用户名<code>imwillxue</code>，仓库名为<code>imwillxue.github.io</code>。<br>
+<img src="http://willxue.cn-bj.ufileos.com/hexo13.png" alt="new" loading="lazy"></li>
+<li>过几分钟就可以访问了。</li>
+</ol>
+<h3 id="部署">部署</h3>
+<p>编辑全局配置文件<code>_config.yml</code>(在F:\hexo下)。部署时，把下面的<code>imwillxue</code>都换成你的账号名。</p>
+<pre><code>deploy: 
+  type: git
+  repository: git@github.com:imwillxue/imwillxue.github.io.git
+  branch: master
+</code></pre>
+<p>**注：**上面是SSH方式的配置，https方式要把url换成<code>https://github.com/imwillxue/imwillxue.github.io.git</code>。<br>
+如果你是第一次使用Github或者是已经使用过，但没有配置过SSH，则可能需要配置一下,方便以后push代码。</p>
+<p>在Git Bash输入以下指令（任意位置点击鼠标右键），检查是否已经存在了SSH keys。</p>
+<pre><code>ls -al ~/.ssh
+</code></pre>
+<p>如果不存在就没有关系，如果存在的话，可以直接删除.ssh文件夹里面所有文件。输入以下指令（邮箱就是你注册Github时候的邮箱）</p>
+<pre><code>ssh-keygen -t rsa -C &quot;example@126.com&quot;
+</code></pre>
+<p>回车，出现提示让你输入的时候直接回车就行了。</p>
+<p>之后找到用户目录下.ssh文件夹，打开<code>id_rsa.pub</code>文件，复制里面的内容。<br>
+<img src="http://willxue.cn-bj.ufileos.com/hexo14.png" alt="ssh" loading="lazy"></p>
+<p>打开github网页找到右上角<code>setting</code>，进去点SSH keys，新建一个SSH。<br>
+<img src="http://willxue.cn-bj.ufileos.com/hexo15.png" alt="ssh" loading="lazy"><br>
+<img src="http://willxue.cn-bj.ufileos.com/hexo16.png" alt="ssh" loading="lazy"><br>
+<img src="http://willxue.cn-bj.ufileos.com/hexo17.png" alt="ssh" loading="lazy"></p>
+<p>回到控制台输入测试命令。</p>
+<pre><code>ssh -T git@github.com
+</code></pre>
+<p>之后会提示连接成功，第一次连可能会警告，输入yes就行了，然后提示连接成功。<br>
+<img src="http://willxue.cn-bj.ufileos.com/hexo18.png" alt="ssh" loading="lazy"></p>
+<p>配置好以后就可以push到github了，输入命令：</p>
+<pre><code>hexo g
+
+hexo d
+</code></pre>
+<p>第一次<code>hexo d</code>可能会报错：<code>ERROR Deployer not found:git</code>，需要安装一下<code>hexo-deployer-git</code>这个插件：</p>
+<pre><code>npm install hexo-deployer-git --save
+</code></pre>
+<p>安装好了继续执行<code>hexo d</code>部署命令，就可以访问了。我的是<code>imwillxue.github.io</code>。<br>
+**注：**在hexo d之后会有个这个提示：<br>
+<img src="http://willxue.cn-bj.ufileos.com/hexo19.png" alt="" loading="lazy"></p>
+<p>需要输入注册邮箱和用户名</p>
+<pre><code>git config --global user.email &quot;example@126.com&quot;
+git config --global user.name &quot;imwillxue&quot;
+</code></pre>
+<p>打开网站看一看吧。</p>
+<h3 id="发表文章">发表文章</h3>
+<ol>
+<li>输入命令新建一篇文章：</li>
+</ol>
+<pre><code>hexo n &quot;文章名字&quot;
+</code></pre>
+<ol start="2">
+<li>打开F:\hexo\source_posts中新建的<code>文章名字.md</code>文件，我用的Notepad++。</li>
+</ol>
+<pre><code>title: 文章名字   #标题
+date: 2016-03-16 23:04:09   #发表日期
+categories: blog   #文章文类
+tags: [文章,随笔]   #文章标签
+---
+#这里是正文，用markdown写，你可以选择写一段显示在首页的简介后，加上&lt;!--more--&gt;，在&lt;!--more--&gt;之前的内容会显示在首页，之后的内容会被隐藏，当游客点击Read more才能看到。
+</code></pre>
+<h1 id="参考">参考</h1>
+<p><a href="http://opiece.me/2015/04/09/hexo-guide/">使用Hexo搭建个人博客(基于hexo3.0)</a><br>
+<a href="http://www.zipperary.com/2013/05/28/hexo-guide-2/">hexo系列教程：（二）搭建hexo博客</a></p>
+<h1 id="最后">最后</h1>
+<p>没了，请看下期。</p>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('http://willxue.cn-bj.ufileos.com/hexo21.jpg');"></div>
+                 <a href="https://willxuecn.github.io/post/Hexo-2-20160320/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2016-03-20">2016-03-20</time>
+                  <h4 class="title white no-margin">Hexo系列教程之二：购买域名、设置DNS</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://willxuecn.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('http://willxue.cn-bj.ufileos.com/nc-8.jpg');"></div>
+                 <a href="https://willxuecn.github.io/post/Hexo-0-20160319/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2016-03-19">2016-03-19</time>
+                  <h4 class="title white no-margin">Hexo系列教程之零：知识准备</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://willxuecn.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <div class="clear"></div>
+<script>
+jQuery(document).ready(function($){
+    $('.vemoji-btn').text('😀');
+    $("#comments").on('click', 'span.vat',function(){
+        $(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
+        $('textarea#veditor').focus();
+    })
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+            if ($(window.location.hash).length) {
+                $('html, body').animate({scrollTop: $(window.location.hash).offset().top-200}, 600);
+                clearInterval(checkExist);
+            }
+        }, 100);
+    }
+})
+</script>
+
+              </div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://willxuecn.github.io/post/golang-learn-01-20161130/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('http://willxue.cn-bj.ufileos.com/golang1.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2016-11-30">2016-11-30</time>
+                      <h4 class="title usmall">
+                        <a href="https://willxuecn.github.io/post/golang-learn-01-20161130/">go语言学习（一）net/http包客户端实例练习</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://willxuecn.github.io/post/golang-learn-0-20161122/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('http://willxue.cn-bj.ufileos.com/nc-9.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2016-11-22">2016-11-22</time>
+                      <h4 class="title usmall">
+                        <a href="https://willxuecn.github.io/post/golang-learn-0-20161122/">go语言学习之零</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://willxuecn.github.io/post/git-cheat-sheet-20160412/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('http://willxue.cn-bj.ufileos.com/git-logo.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2016-04-12">2016-04-12</time>
+                      <h4 class="title usmall">
+                        <a href="https://willxuecn.github.io/post/git-cheat-sheet-20160412/">Git Cheat Sheet</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://willxuecn.github.io/tag/euPuGRw2l/" class="ctag ctag-0 ctag-euPuGRw2l" aria-label="">Golang</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/V-r-1dBE_/" class="ctag ctag-1 ctag-V-r-1dBE_" aria-label="">Git</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/xmLTo5E2-/" class="ctag ctag-2 ctag-xmLTo5E2-" aria-label="">Java</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/WCVZc6LMO/" class="ctag ctag-3 ctag-WCVZc6LMO" aria-label="">Tomcat</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/zr2ksHbR_/" class="ctag ctag-4 ctag-zr2ksHbR_" aria-label="">域名</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/R9_NO7fNG/" class="ctag ctag-5 ctag-R9_NO7fNG" aria-label="">hexo</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/i_EHnXIMQ/" class="ctag ctag-6 ctag-i_EHnXIMQ" aria-label="">教程</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/jGvDanz4w/" class="ctag ctag-7 ctag-jGvDanz4w" aria-label="">hello world</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/EwToOi5s_/" class="ctag ctag-8 ctag-EwToOi5s_" aria-label="">随笔</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://willxuecn.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">WillXue&#39;s Blog</a></h4>
+                    <p class="founder">一个好高骛远的码农</p>
+                    <div class="social">
+                      
+                          
+                            <a href="https://github.com/willxuecn" class="translate-effect" target="_blank"><i class="fa fa-github"></i></a>
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://willxuecn.github.io"><img src="\media\images\custom-footerLogo.jpg" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 13 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/valine/1.3.10/Valine.Pure.min.js"></script>
+<script>
+    new Valine({
+        el: '#comments',
+        appId: 'QImiFijLSOHYufsazlBVlwLg-gzGzoHsz' ,
+        appKey: 'AMcYaNHy9Y5OdH42k0d4uSED',
+        pageSize: 30,
+        placeholder: '既然来了，那就留个痕迹吧~',
+        visitor: true // 阅读量统计
+    })
+</script>
+    
+
+      
+    <script src="https://willxuecn.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>

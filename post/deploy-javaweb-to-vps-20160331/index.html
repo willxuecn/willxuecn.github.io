@@ -1,0 +1,426 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>在VPS上部署Java项目，绑定多个域名 | WillXue&#39;s Blog</title>
+<meta name="description" content="一个好高骛远的码农" />
+<link rel="shortcut icon" href="https://willxuecn.github.io/favicon.ico">
+<link rel="stylesheet" href="https://willxuecn.github.io/styles/main.css">
+
+<script src="https://willxuecn.github.io/media/js/jquery.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/masonry.pkgd.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/aos.js"></script>
+<script src="https://willxuecn.github.io/media/js/pace.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/view-image.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/jquery.magnific-popup.min.js"></script>
+<script src="https://willxuecn.github.io/media/js/functions.js"></script>
+    <meta name="referrer" content="never">
+    <meta name="description" content="
+工作不到一年，以前又异常懒惰，对服务器方面一向没有什么认知，听名字以为很高级，刚开始有些不知所措，从网上搜索了一些知识，总算有了一定的了解，但也只能算刚刚入门，记录一下。
+
+
+VPS
+
+VPS（Virtual Private Server..." />
+    <meta name="keywords" content="域名,Java,Tomcat" />
+    <script src="https://willxuecn.github.io/media/js/waterfall.min.js"></script>
+    <script src="https://willxuecn.github.io/media/js/prism.min.js"></script>
+  </head>
+  <body>
+            <header id="header" class="grid-container">
+        <!-- start: .menu-wrapper -->
+        <div class="menu-mobile"> 
+          <i class="fa fa-reorder"></i>
+        </div>
+        <div class="menu-wrapper">
+          <div class="">
+            <div class="logo">
+              <a href="https://willxuecn.github.io"><img src="/media/images/logoo.png" alt=""></a>
+            </div>
+            <!-- start: .main-nav -->
+
+            <nav class="main-nav grid-container grid-parent">
+              <ul id="menu-header" class="menu gradient-effect">
+                <li class=""><a href="https://willxuecn.github.io" class="menu">首页</a></li>
+                
+                  <li class="" >
+                    <a href="/archives" class="menu">
+                      归档
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/tags" class="menu">
+                      标签
+                    </a>
+                  </li>
+                
+                  <li class="" >
+                    <a href="/post/about" class="menu">
+                      关于
+                    </a>
+                  </li>
+                
+                <li class="search-menu-item hide-on-mobile hide-on-tablet"><a href="#search-lightbox" class="lightbox mfp-inline"><i class="fa fa-search-line"></i></a></li>
+              </ul>
+            </nav>
+            <a href="#search-lightbox" class="lightbox epcl-search-button mfp-inline hide-on-tablet hide-on-desktop"><i class="fa fa-search-line"></i></a>
+            <!-- end: .main-nav -->
+            <div class="clear"></div>
+            <div class="border hide-on-tablet hide-on-mobile"></div>
+          </div>    
+          <div class="clear"></div>
+        </div>
+        <!-- end: .menu-wrapper -->
+        <div class="clear"></div>
+      </header>
+      <div class="hide-on-mobile hide-on-tablet hide-on-desktop">
+        <div id="search-lightbox" class="grid-container grid-small grid-parent mfp-hide">
+          <div class="search-wrapper section">
+            <form id="gridea-search-form" data-update="1587230074610" action="/search/index.html" class="search-form" _lpchecked="1">
+              <input type="text" name="q" id="s" value="" class="search-field" placeholder="搜点啥..." aria-label="搜点啥..." required="">
+              <button type="submit" class="submit" aria-label="Submit">
+                <i class="fa fa-search-line"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <main id="single" class="main grid-container fullcover no-sidebar aos-init aos-animate" data-aos="fade">
+
+        <div class="center content">
+          <div class="featured-image cover" style="background-image: url('http://willxue.cn-bj.ufileos.com/nc-9.jpg');">
+            <div class="meta top"> 
+              <time class="meta-info" style="float:left;" datetime="2016-03-31"><i class="fa fa-calendar"></i><span class="lately">4 年前</span></time>
+              
+              <a href="https://willxuecn.github.io/post/deploy-javaweb-to-vps-20160331/#comments" class="comments meta-info" title="">
+                <i class="fa fa-comment remixicon"></i><span class="comment-count valine-comment-count" data-xid="/deploy-javaweb-to-vps-20160331/"> </span>
+              </a>
+              <span id="/deploy-javaweb-to-vps-20160331/" class="leancloud_visitors views-counter meta-info" title=""><i class="fa fa-leancloud remixicon"></i><span class="leancloud-visitors-count"></span></span>
+              
+            </div>
+            <div class="info">
+              <div class="tags ">
+                
+                      <a href="https://willxuecn.github.io/tag/zr2ksHbR_/" class="ctag ctag-0 ctag-zr2ksHbR_" aria-label="">域名</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/xmLTo5E2-/" class="ctag ctag-1 ctag-xmLTo5E2-" aria-label="">Java</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/WCVZc6LMO/" class="ctag ctag-2 ctag-WCVZc6LMO" aria-label="">Tomcat</a>
+                    
+              </div>
+              <h1 class="title ularge white bold">在VPS上部署Java项目，绑定多个域名</h1>
+            </div>
+          </div>
+        </div>  
+
+        <div class="epcl-page-wrapper">
+          <div class="left-content grid-70 np-mobile">
+            <article class="main-article post">
+              <section class="post-content">
+                <div class="text">
+                  <blockquote>
+<p>工作不到一年，以前又异常懒惰，对服务器方面一向没有什么认知，听名字以为很高级，刚开始有些不知所措，从网上搜索了一些知识，总算有了一定的了解，但也只能算刚刚入门，记录一下。</p>
+</blockquote>
+<!--more-->
+<h1 id="vps">VPS</h1>
+<blockquote>
+<p>VPS（Virtual Private Server 虚拟专用服务器）技术，将一部服务器分割成多个虚拟专享服务器的优质服务。每个VPS都可分配独立公网IP地址、独立操作系统、实现不同VPS间磁盘空间、内存、CPU资源、进程和系统配置的隔离，为用户和应用程序模拟出“独占”使用计算资源的体验。VPS可以像独立服务器一样，重装操作系统，安装程序，单独重启服务器。</p>
+</blockquote>
+<p>简单来说就是出于成本考虑，租用服务器花费太高，服务商将服务器分割成若干个“服务器”，这些个“服务器”有可以享有独立的ip，os等资源，比较适合中小企业建站需求。</p>
+<h2 id="vps上部署java项目">VPS上部署Java项目</h2>
+<p>以前认知上一直有个误区，以为服务器都很复杂，而现在大多数服务器的环境全是php的，我要部署Java应用，感觉无从下手，其实服务器和我们平常用的计算机没有什么区别，只是要24小时运行，联网，为外界提供访问。所以下面就好理解了。<br>
+我用的vps装的是Windows server 2008 R2，以前运行过asp项目，所以安装有IIS，因为IIS已经占用了80端口，所以再要tomcat运行javaweb程序的话，搜到了以下几种解决方法：</p>
+<ol>
+<li>我的情况，不需要asp程序了，将IIS卸载释放80端口。</li>
+<li>同时运行asp和jsp程序，需要将IIS和tomcat进行整合，网上有很多教程，我很懒，没弄！</li>
+<li>好像也可以用nginx反向代理，没深入研究，这几天打算学一下nginx呢。</li>
+</ol>
+<p>我就介绍下第一种情况把（懒癌患者）！<br>
+安装 <code>jdk1.7</code> ， <code>tomcat7</code> 配置好环境变量，这些基础的就不说了，就和在自己电脑上一样安装。</p>
+<ul>
+<li>将要运行的项目用eclipse打成war包，上传到vps上，放到 <code>tomcat\webapps</code>下或者其他目录也行，为了方便我就放到webapps下了。</li>
+<li>修改 <code>tomcat\conf</code> 下的 <code>server.xml</code> 文件修改端口为80，这样输入网址的时候就不用加上端口了。</li>
+</ul>
+<pre><code>#将端口修改成80 URIEncoding=&quot;UTF-8&quot;是防止乱码的
+&lt;Connector port=&quot;80&quot; protocol=&quot;HTTP/1.1&quot; connectionTimeout=&quot;20000&quot; redirectPort=&quot;8443&quot; URIEncoding=&quot;UTF-8&quot; /&gt;
+</code></pre>
+<ul>
+<li>绑定域名，还是修改 <code>tomcat\conf</code> 下的 <code>server.xml</code> 文件。</li>
+</ul>
+<pre><code>&lt;Engine name=&quot;Catalina&quot; defaultHost=&quot;www.abc.com&quot;&gt;
+	&lt;Realm className=&quot;org.apache.catalina.realm.LockOutRealm&quot;&gt;
+	&lt;/Realm&gt;
+	&lt;Host name=&quot;www.abc.com&quot; appBase=&quot;webapps&quot; unpackWARs=&quot;true&quot; autoDeploy=&quot;true&quot;&gt;
+		&lt;Context path=&quot;&quot; docBase=&quot;abc&quot; debug=&quot;0&quot; reloadable=&quot;true&quot; /&gt;
+		&lt;Valve className=&quot;org.apache.catalina.valves.AccessLogValve&quot; directory=&quot;logs&quot; prefix=&quot;localhost_access_log.&quot; suffix=&quot;.txt&quot; pattern=&quot;%h %l %u %t &amp;quot;%r&amp;quot; %s %b&quot; /&gt;
+	&lt;/Host&gt;
+	&lt;Host name=&quot;www.bcd.com&quot; appBase=&quot;webapps&quot; unpackWARs=&quot;true&quot; autoDeploy=&quot;true&quot;&gt;
+		&lt;Context path=&quot;&quot; docBase=&quot;bcd&quot; debug=&quot;0&quot; reloadable=&quot;true&quot; /&gt;
+		&lt;Valve className=&quot;org.apache.catalina.valves.AccessLogValve&quot; directory=&quot;logs&quot; prefix=&quot;localhost_access_log.&quot; suffix=&quot;.txt&quot; pattern=&quot;%h %l %u %t &amp;quot;%r&amp;quot; %s %b&quot; /&gt;
+		&lt;Alias&gt;bcd.com&lt;/Alias&gt;
+	&lt;/Host&gt;
+&lt;/Engine&gt;
+</code></pre>
+<p>配置说明：</p>
+<ul>
+<li><code>defaultHost=&quot;www.abc.com&quot;</code> 表示访问该tomcat默认进入的主机。也可以是localhost 不改，这样别人访问你的ip的话会进入tomcat设置界面。</li>
+<li>Host 的 name:表示该主机绑定的域名,也可以是公网ip,如果绑定localhost则可以通过在浏览器中输入localhost访问该Host。Host的 appBase:表示该主机绑定的文件存放路径,可以使用相对路径或绝对路径如：<code>d:/abc</code>，tomcat会默认部署该目录里的应用。</li>
+<li><code>&lt;Context path=&quot;&quot; docBase=&quot;abc&quot; debug=&quot;0&quot; reloadable=&quot;true&quot; /&gt;</code> 如果不加这句，就会默认访问appBase下的ROOT文件夹下的项目。path是说明虚拟目录的名字，如果你要只输入ip地址就显示主页，则该键值留为空；docBase是虚拟目录的路径，它默认的是$tomcat/webapps/ROOT目录，我的项目在webapps\abc目录，让该目录作为我的默认目录。debug和reloadable一般都分别设置成0和true。</li>
+<li>绑定多个域名的话就在加一个host标签。</li>
+<li>多个域名同时访问一个项目，比如www.bcd.com和bcd.com都访问到bcd项目，host里加入<Alias>标签，A大写。</li>
+</ul>
+<p>现在重启tomcat浏览器输入地址就可以访问到要部署的项目了。<br>
+为了方便可以把tomcat加入windows服务，直接打开 <code>tomcat\bin\service.bat</code> 就会自动加入服务了。</p>
+<h1 id="问题">问题</h1>
+<ol>
+<li>域名解析到服务器的ip了，tomcat也配置好了，还是访问不了。<br>
+首先，域名解析到国内的vps都得备案，还有可能vps提供商的后台需要把域名加入白名单才能访问。</li>
+<li>我还没发现其他的问题。</li>
+</ol>
+
+                </div>
+                <div class="clear"></div>
+              </section>
+            </article>
+            <div class="clear"></div>
+
+            <section class="related section">
+              
+              <article class="prev grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('http://willxue.cn-bj.ufileos.com/nc-7.jpg');"></div>
+                 <a href="https://willxuecn.github.io/post/java-lang-OutOfMemoryError-PermGen-space-20160406/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2016-04-06">2016-04-06</time>
+                  <h4 class="title white no-margin">java.lang.OutOfMemoryError: PermGen space</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://willxuecn.github.io/media/images/left-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+              
+              <article class="next grid-50 tablet-grid-50 grid-parent">
+                <div class="thumb cover lazy loaded" style="background-image: url('http://willxue.cn-bj.ufileos.com/hexo51.png');"></div>
+                 <a href="https://willxuecn.github.io/post/Hexo-5-20160325/" class="full-link"></a>
+                 <div class="info">
+                  <time datetime="2016-03-25">2016-03-25</time>
+                  <h4 class="title white no-margin">Hexo系列教程之五：hexo博客同时托管在github和coding</h4>
+                </div>
+                 <span class="epcl-button red">
+                  <img src="https://willxuecn.github.io/media/images/right-arrow.svg" width="15" alt="Left Arrow">
+                </span>
+                <div class="overlay"></div>
+              </article>
+              
+
+                <div class="clear"></div>
+            </section>
+
+              <div class="clear"></div>
+              
+            
+              <div id="comments" class="bg-white hosted ">
+                <div class="clear"></div>
+<script>
+jQuery(document).ready(function($){
+    $('.vemoji-btn').text('😀');
+    $("#comments").on('click', 'span.vat',function(){
+        $(this).parent('div.vmeta').next("div.vcontent").after($("div.vwrap"));
+        $('textarea#veditor').focus();
+    })
+    if(window.location.hash){
+        var checkExist = setInterval(function() {
+            if ($(window.location.hash).length) {
+                $('html, body').animate({scrollTop: $(window.location.hash).offset().top-200}, 600);
+                clearInterval(checkExist);
+            }
+        }, 100);
+    }
+})
+</script>
+
+              </div>
+            
+
+            </div>
+          </div>
+      </main>
+
+          <footer id="footer" class="grid-container">
+        <div class="widgets row gradient-effect">
+            <div class="default-sidebar border-effect">
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_epcl_posts_thumbs underline-effect">
+                  <h4 class="widget-title title white bordered">最新文章</h4>
+                  
+                  
+                  <article class="item post-0 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://willxuecn.github.io/post/golang-learn-01-20161130/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('http://willxue.cn-bj.ufileos.com/golang1.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2016-11-30">2016-11-30</time>
+                      <h4 class="title usmall">
+                        <a href="https://willxuecn.github.io/post/golang-learn-01-20161130/">go语言学习（一）net/http包客户端实例练习</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-1 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://willxuecn.github.io/post/golang-learn-0-20161122/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('http://willxue.cn-bj.ufileos.com/nc-9.jpg');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2016-11-22">2016-11-22</time>
+                      <h4 class="title usmall">
+                        <a href="https://willxuecn.github.io/post/golang-learn-0-20161122/">go语言学习之零</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  <article class="item post-2 post type-post status-publish format-standard has-post-thumbnail hentry">
+                    <a href="https://willxuecn.github.io/post/git-cheat-sheet-20160412/" class="thumb hover-effect">
+                      <span class="fullimage cover" style="display:block;border-radius:50%;background-image: url('http://willxue.cn-bj.ufileos.com/git-logo.png');"></span>
+                    </a>
+                    <div class="info gradient-effect">
+                      <time datetime="2016-04-12">2016-04-12</time>
+                      <h4 class="title usmall">
+                        <a href="https://willxuecn.github.io/post/git-cheat-sheet-20160412/">Git Cheat Sheet</a>
+                      </h4>
+                    </div>
+                    <div class="clear"></div>
+                  </article>
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="tag_cloud-2" class="widget widget_tag_cloud underline-effect">
+                  <h4 class="widget-title title white bordered">标签云</h4>
+                  <div class="tagcloud">
+                    
+                      <a href="https://willxuecn.github.io/tag/euPuGRw2l/" class="ctag ctag-0 ctag-euPuGRw2l" aria-label="">Golang</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/V-r-1dBE_/" class="ctag ctag-1 ctag-V-r-1dBE_" aria-label="">Git</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/xmLTo5E2-/" class="ctag ctag-2 ctag-xmLTo5E2-" aria-label="">Java</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/WCVZc6LMO/" class="ctag ctag-3 ctag-WCVZc6LMO" aria-label="">Tomcat</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/zr2ksHbR_/" class="ctag ctag-4 ctag-zr2ksHbR_" aria-label="">域名</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/R9_NO7fNG/" class="ctag ctag-5 ctag-R9_NO7fNG" aria-label="">hexo</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/i_EHnXIMQ/" class="ctag ctag-6 ctag-i_EHnXIMQ" aria-label="">教程</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/jGvDanz4w/" class="ctag ctag-7 ctag-jGvDanz4w" aria-label="">hello world</a>
+                    
+                      <a href="https://willxuecn.github.io/tag/EwToOi5s_/" class="ctag ctag-8 ctag-EwToOi5s_" aria-label="">随笔</a>
+                    
+                  </div>
+                  <div class="clear"></div>
+                </section>
+              </div>
+
+              <div class="grid-33 tablet-grid-50 mobile-grid-100">
+                <section id="epcl_about-2" class="widget widget_epcl_about underline-effect">
+                  <h4 class="widget-title title white bordered">关于我</h4>
+                  <div class="avatar">
+                    <a href="" class="translate-effect thumb"><span class="fullimage cover" style="background-image: url(https://willxuecn.github.io/images/avatar.png);"></span></a>
+                  </div>
+                  <div class="info">
+                    <h4 class="title small author-name gradient-effect no-margin"><a href="">WillXue&#39;s Blog</a></h4>
+                    <p class="founder">一个好高骛远的码农</p>
+                    <div class="social">
+                      
+                          
+                            <a href="https://github.com/willxuecn" class="translate-effect" target="_blank"><i class="fa fa-github"></i></a>
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                        
+                      
+                    </div> 
+                  </div>
+                  <div class="clear"></div>
+                  </section>
+              </div>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="logo">
+          <a href="https://willxuecn.github.io"><img src="\media\images\custom-footerLogo.jpg" alt=""></a>
+        </div>
+        <p class="published border-effect">
+          ©2019 共 13 篇文章
+          <br/>
+          Theme <a href="https://gridea.dev/" target="_blank">「breek」</a> Powered by <a href="https://gridea.dev/" target="_blank">「Gridea」</a>
+        </p>
+        
+        <a href="javascript:void(0)" id="back-to-top" class="epcl-button dark" style="display:none">
+          <i class="fa fa-arrow"></i>
+        </a>
+    </footer>
+    
+    <div class="clear"></div>
+
+        
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/leancloud-storage/dist/av-min.js"></script>
+<script type="text/javascript" src="https://cdn.staticfile.org/valine/1.3.10/Valine.Pure.min.js"></script>
+<script>
+    new Valine({
+        el: '#comments',
+        appId: 'QImiFijLSOHYufsazlBVlwLg-gzGzoHsz' ,
+        appKey: 'AMcYaNHy9Y5OdH42k0d4uSED',
+        pageSize: 30,
+        placeholder: '既然来了，那就留个痕迹吧~',
+        visitor: true // 阅读量统计
+    })
+</script>
+    
+
+      
+    <script src="https://willxuecn.github.io/media/js/functions-post.js"></script>
+
+    </div>
+    <!-- end: #wrapper -->
+  </body>
+</html>
